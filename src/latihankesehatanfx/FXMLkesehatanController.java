@@ -60,7 +60,7 @@ public class FXMLkesehatanController implements Initializable {
 
     @FXML
     private void proses(ActionEvent event) {
-        if(!(nama.getText().equals("") || tinggi.getText().equals("") || bb.getText().equals("") || L.isSelected() || P.isSelected()) ){
+        if(nama.getText().equals("") || tinggi.getText().equals("") || bb.getText().equals("")  ){
             JOptionPane.showMessageDialog(null, "Harap Lengkapi Data Anda");
         }else{
         int ideal = 0;
@@ -84,7 +84,9 @@ public class FXMLkesehatanController implements Initializable {
                 ta11 = "Overweight";
                 ta22 = "Saran = \n1.Makanlah makanan yang banyak mengandung serat\n2.Rajinlah dalam berolahraga\n3.Turunkan berat badan anda!";
             }
-            
+            beratIdeal.setText(""+ideal);
+            ta1.setText("Nama : "+Nama+"\nTinggi Badan : "+Tinggi+"\nBerat Badan : "+berat+"\nAnalisa : "+ta11);
+            ta2.setText(ta22);
         }
         else if(P.isSelected()){
             ideal = Tinggi - 100;
@@ -100,12 +102,20 @@ public class FXMLkesehatanController implements Initializable {
             ta11 = "Overweight";
                 ta22 = "Saran = \n1.Makanlah makanan yang banyak mengandung serat\n2.Rajinlah dalam berolahraga\n3.Turunkan berat badan anda!";
             }
-        }
             beratIdeal.setText(""+ideal);
-            ta1.setText("Nama : "+Nama+"\nBerat Badan :"+berat+"\nTinggi Badan : "+Tinggi+"\nAnalisa : "+ta11);
+            ta1.setText("Nama : "+Nama+"\nTinggi Badan : "+Tinggi+"\nBerat Badan : "+berat+"\nAnalisa : "+ta11);
             ta2.setText(ta22);
         }
-    }
+        else{
+                JOptionPane.showMessageDialog(null, "Harap Lengkapi Data Anda");
+                ta11 = "";
+                ta22 = "";  
+            beratIdeal.setText("");
+            ta1.setText(ta11);
+            ta2.setText(ta22);        
+        }
+        }
+        }
     @FXML
     void hapus(ActionEvent event) {
         nama.setText("");
